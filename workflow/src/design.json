@@ -1,0 +1,12 @@
+{
+  "reader": "kintai を自分 1 人で使う本人。細かい仕様を決める前に、実際に使う流れの全体を見たい",
+  "reader_knows": ["LINE", "マネーフォワード クラウド勤怠", "Claude（Claude in Chrome を含む）"],
+  "takeaway": "kintai は平日の夜に LINE へ残業時間を送り、月初めに Chrome の Claude へ先月分の反映を頼む 2 場面で使う。骨組みは決まっていて、細部に決めることが 13 件残る。",
+  "support": [
+    "平日の夜は、残業時間を LINE に送ると記録され、返信で記録内容を確かめられる（休日は時刻を聞き返し、同じ日の再送は上書き）",
+    "月初めは通知を受けたら、Claude がクラウド勤怠の退勤時刻を 1 件ずつ直して反映済みにする",
+    "決めることは場面ごとに残っていて、最も多いのは月初め（記録の渡し方・失敗時の扱いなど）"
+  ],
+  "subject_anchor": "kintai（残業記録ツール）",
+  "avoid_terms": ["Edge Functions", "Cron", "Messaging API", "speclink", "UC-", "DEC-", "REQ-"]
+}

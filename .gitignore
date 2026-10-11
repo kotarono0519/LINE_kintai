@@ -1,0 +1,17 @@
+# 設計文書は別リポジトリ（LINE_kintai-docs）で管理する
+/docs/
+
+# Supabase CLI の一時ファイル（接続先の情報を含む）
+supabase/.temp/
+supabase/.branches/
+
+# 接続先 ID を含むため公開リポジトリに載せない
+.mcp.json
+
+# 鍵・個人設定
+.env
+.env.*
+.claude/settings.local.json
+
+.DS_Store
+node_modules/

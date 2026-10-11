@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" role="img" aria-label="kintai の使い方の 2 場面。左は毎日、あなたが LINE に残業時間を送り記録される流れ。右は月初め、通知を受けて Claude in Chrome がクラウド勤怠の退勤時刻を直す流れ">
+  <rect x="0" y="0" width="1200" height="440" fill="#FFFFFF"/>
+  <g font-family="IBM Plex Sans JP, Hiragino Kaku Gothic ProN, sans-serif">
+    <text x="30" y="48" font-size="28" font-weight="700" fill="#212529">kintai の使い方は「毎日」と「月初め」の 2 場面</text>
+    <text x="30" y="80" font-size="16" fill="#64707C">残業は LINE で送ってため、月初めに Claude がクラウド勤怠へ反映する</text>
+
+    <!-- 毎日 -->
+    <rect x="30" y="104" width="560" height="310" rx="18" fill="#F6F8FA" stroke="#DEE2E6" stroke-width="2"/>
+    <text x="54" y="144" font-size="22" font-weight="700" fill="#212529">毎日（平日の夜）</text>
+    <rect x="440" y="122" width="128" height="32" rx="16" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+    <text x="504" y="144" text-anchor="middle" font-size="15" font-weight="700" fill="#D97706">決めることあり</text>
+    <g>
+      <rect x="54" y="176" width="150" height="110" rx="14" fill="#FFFFFF" stroke="#212529" stroke-width="3"/>
+      <text x="129" y="226" text-anchor="middle" font-size="24" font-weight="700" fill="#212529">あなた</text>
+      <text x="129" y="260" text-anchor="middle" font-size="15" fill="#64707C">残業時間を送る</text>
+      <rect x="234" y="176" width="150" height="110" rx="14" fill="#FFFFFF" stroke="#212529" stroke-width="3"/>
+      <text x="309" y="226" text-anchor="middle" font-size="24" font-weight="700" fill="#212529">LINE</text>
+      <text x="309" y="260" text-anchor="middle" font-size="15" fill="#64707C">受け取って返信</text>
+      <rect x="414" y="176" width="150" height="110" rx="14" fill="#FFFFFF" stroke="#212529" stroke-width="3"/>
+      <text x="489" y="226" text-anchor="middle" font-size="24" font-weight="700" fill="#212529">記録</text>
+      <text x="489" y="260" text-anchor="middle" font-size="15" fill="#64707C">反映待ちで保存</text>
+    </g>
+    <g stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none">
+      <path d="M 208 231 L 228 231"/><path d="M 220 223 L 229 231 L 220 239"/>
+      <path d="M 388 231 L 408 231"/><path d="M 400 223 L 409 231 L 400 239"/>
+    </g>
+    <rect x="54" y="318" width="250" height="44" rx="22" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+    <text x="179" y="346" text-anchor="middle" font-size="17" fill="#212529">今日 2 時間残業した</text>
+    <rect x="320" y="354" width="244" height="44" rx="22" fill="#FFFFFF" stroke="#DEE2E6" stroke-width="2"/>
+    <text x="442" y="382" text-anchor="middle" font-size="17" fill="#64707C">残業を記録しました</text>
+
+    <!-- 場面のつなぎ -->
+    <g stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none">
+      <path d="M 568 231 C 590 231, 600 231, 628 231"/><path d="M 620 223 L 629 231 L 620 239"/>
+    </g>
+    <text x="600" y="306" text-anchor="middle" font-size="14" fill="#2563EB">ひと月分</text>
+    <text x="600" y="324" text-anchor="middle" font-size="14" fill="#2563EB">たまる</text>
+
+    <!-- 月初め -->
+    <rect x="610" y="104" width="560" height="310" rx="18" fill="#F6F8FA" stroke="#DEE2E6" stroke-width="2"/>
+    <text x="634" y="144" font-size="22" font-weight="700" fill="#212529">月初め</text>
+    <rect x="1020" y="122" width="128" height="32" rx="16" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+    <text x="1084" y="144" text-anchor="middle" font-size="15" font-weight="700" fill="#D97706">決めることあり</text>
+    <g>
+      <rect x="634" y="176" width="150" height="110" rx="14" fill="#FFFFFF" stroke="#212529" stroke-width="3"/>
+      <text x="709" y="226" text-anchor="middle" font-size="24" font-weight="700" fill="#212529">通知</text>
+      <text x="709" y="260" text-anchor="middle" font-size="15" fill="#64707C">先月分を知らせる</text>
+      <rect x="814" y="176" width="150" height="110" rx="14" fill="#FFFFFF" stroke="#212529" stroke-width="3"/>
+      <text x="889" y="226" text-anchor="middle" font-size="24" font-weight="700" fill="#212529">Claude</text>
+      <text x="889" y="260" text-anchor="middle" font-size="15" fill="#64707C">Chrome で依頼</text>
+      <rect x="994" y="176" width="150" height="110" rx="14" fill="#FFFFFF" stroke="#212529" stroke-width="3"/>
+      <text x="1069" y="226" text-anchor="middle" font-size="21" font-weight="700" fill="#212529">クラウド勤怠</text>
+      <text x="1069" y="260" text-anchor="middle" font-size="15" fill="#64707C">退勤時刻を直す</text>
+    </g>
+    <g stroke="#2563EB" stroke-width="5" stroke-linecap="round" fill="none">
+      <path d="M 788 231 L 808 231"/><path d="M 800 223 L 809 231 L 800 239"/>
+      <path d="M 968 231 L 988 231"/><path d="M 980 223 L 989 231 L 980 239"/>
+    </g>
+    <g stroke="#16A34A" stroke-width="4" stroke-linecap="round" fill="none">
+      <path d="M 1069 292 L 1069 330"/><path d="M 1061 322 L 1069 331 L 1077 322"/>
+    </g>
+    <rect x="964" y="340" width="180" height="44" rx="22" fill="#FFFFFF" stroke="#16A34A" stroke-width="2.5"/>
+    <text x="1054" y="368" text-anchor="middle" font-size="17" font-weight="700" fill="#16A34A">反映済みにする</text>
+    <rect x="634" y="340" width="300" height="44" rx="22" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+    <text x="784" y="368" text-anchor="middle" font-size="17" fill="#212529">先月分を反映して</text>
+  </g>
+</svg>

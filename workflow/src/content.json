@@ -1,0 +1,154 @@
+{
+ "kicker": "使い方の下書き / 細かい仕様を決める前の全体図",
+ "title": "kintai は平日の夜に LINE へ 1 通送り、月初めに Claude へ 1 回頼むだけで残業をクラウド勤怠に届ける",
+ "conclusion": "使う場面は**毎日**と**月初め**の 2 つ。平日の夜は LINE に残業時間を送り、月初めは Claude in Chrome に先月分の反映を頼む。骨組みは決まっていて、細部に**決めること 13 件**が残っている。",
+ "three_lines": [
+  "平日の夜は、残業時間を LINE に送ると記録され、**返信で記録内容を確かめられる**。",
+  "月初めは通知を受けたら、Claude がクラウド勤怠の**退勤時刻を 1 件ずつ直して**反映する。",
+  "図の**橙色の印が決めること**で、最後の表に場面ごとにまとめた。"
+ ],
+ "hero": {
+  "src": "hero.svg",
+  "alt": "kintai の使い方の 2 場面。左は毎日の記録、右は月初めの反映",
+  "caption": "左が毎日、右が月初めの流れ。「決めることあり」の印が付いた場面に、まだ決めることが残っている。",
+  "width": 1200,
+  "height": 440
+ },
+ "sections": [
+  {
+   "heading": "平日の夜は LINE に残業時間を送るだけで記録される",
+   "body": [
+    "送った文は記録係が受け取る。記録係は、データを預かるクラウドの保管サービス（Supabase）の上で動く受付の仕組みで、Claude に文を読ませて日付と残業分を取り出す。",
+    "取り出した値は「反映待ち」の記録として保存され、LINE に「10/2 残業 120 分で記録しました」と返る。返信を見れば、読み取りの間違いにその場で気づける。",
+    "この場面で決めることは 4 つある。送る文の書き方の幅、前の日の分の扱い、読み取れないときの返し方、記録を見る・取り消す方法だ。"
+   ],
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 170\" role=\"img\" aria-label=\"平日の夜の流れ。送る、読み取る、保存する、返信する の 4 手順と、それぞれで決めること\"><rect x=\"2\" y=\"24\" width=\"166\" height=\"58\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><circle cx=\"18\" cy=\"42\" r=\"9\" fill=\"var(--accent)\"/><text x=\"18\" y=\"46\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--paper)\">1</text><text x=\"32\" y=\"46\"  font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">送る</text><text x=\"14\" y=\"68\"  font-size=\"11\" fill=\"var(--muted)\">LINE に残業時間</text><text x=\"6\" y=\"16\" font-size=\"10.5\" fill=\"var(--muted)\">あなた</text><path d=\"M 169 53 L 177 53\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 171 48 L 177 53 L 171 58\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><rect x=\"178\" y=\"24\" width=\"166\" height=\"58\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><circle cx=\"194\" cy=\"42\" r=\"9\" fill=\"var(--accent)\"/><text x=\"194\" y=\"46\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--paper)\">2</text><text x=\"208\" y=\"46\"  font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">読み取る</text><text x=\"190\" y=\"68\"  font-size=\"11\" fill=\"var(--muted)\">Claude が日付と残業分</text><text x=\"182\" y=\"16\" font-size=\"10.5\" fill=\"var(--muted)\">記録係</text><path d=\"M 345 53 L 353 53\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 347 48 L 353 53 L 347 58\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><rect x=\"354\" y=\"24\" width=\"166\" height=\"58\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><circle cx=\"370\" cy=\"42\" r=\"9\" fill=\"var(--accent)\"/><text x=\"370\" y=\"46\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--paper)\">3</text><text x=\"384\" y=\"46\"  font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">保存する</text><text x=\"366\" y=\"68\"  font-size=\"11\" fill=\"var(--muted)\">反映待ちとして</text><text x=\"358\" y=\"16\" font-size=\"10.5\" fill=\"var(--muted)\">記録係</text><path d=\"M 521 53 L 529 53\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 523 48 L 529 53 L 523 58\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><rect x=\"530\" y=\"24\" width=\"166\" height=\"58\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><circle cx=\"546\" cy=\"42\" r=\"9\" fill=\"var(--accent)\"/><text x=\"546\" y=\"46\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--paper)\">4</text><text x=\"560\" y=\"46\"  font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">返信する</text><text x=\"542\" y=\"68\"  font-size=\"11\" fill=\"var(--muted)\">記録した内容を LINE へ</text><text x=\"534\" y=\"16\" font-size=\"10.5\" fill=\"var(--muted)\">記録係</text><circle cx=\"10\" cy=\"104\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"18\" y=\"108\" font-size=\"10.5\" fill=\"var(--warn)\">書き方の幅</text><circle cx=\"10\" cy=\"122\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"18\" y=\"126\" font-size=\"10.5\" fill=\"var(--warn)\">前の日の分を送れるか</text><circle cx=\"186\" cy=\"104\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"194\" y=\"108\" font-size=\"10.5\" fill=\"var(--warn)\">読み取れないときの返し方</text><circle cx=\"538\" cy=\"104\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"546\" y=\"108\" font-size=\"10.5\" fill=\"var(--warn)\">記録を見る・取り消す方法</text></svg>",
+   "fig_caption": "番号の順に流れる。箱の上は動く人、橙の文字はまだ決めること。"
+  },
+  {
+   "heading": "休日と送り直しの 2 つだけは流れが分かれる",
+   "body": [
+    "休日には定時がないので、残業時間だけでは退勤時刻が決まらない。そのため記録係は、出勤と退勤の時刻を LINE で聞き返す。",
+    "同じ日に 2 回送ったときは、後の値で上書きし、更新したことを LINE で知らせる。打ち間違えても、送り直せば直る。",
+    "休日の側には決めることが 2 つ残る。どの日を休日とみなすかと、聞き返しに答えなかったときの扱いだ。"
+   ],
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 200\" role=\"img\" aria-label=\"流れが分かれる 2 つの場合。休日は時刻を聞き返す。同じ日の送り直しは上書きする\"><rect x=\"0\" y=\"0\" width=\"344\" height=\"196\" rx=\"10\" fill=\"var(--paper-dim)\" stroke=\"var(--line)\" stroke-width=\"1\"/><text x=\"14\" y=\"24\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">休日に送った</text><rect x=\"14\" y=\"42\" width=\"150\" height=\"56\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><text x=\"89.0\" y=\"64\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">出勤・退勤を聞き返す</text><text x=\"89.0\" y=\"86\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--muted)\">記録係が LINE で</text><path d=\"M 166 70 L 178 70\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 172 65 L 178 70 L 172 75\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><rect x=\"180\" y=\"42\" width=\"150\" height=\"56\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><text x=\"255.0\" y=\"64\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">答えた時刻で保存</text><text x=\"255.0\" y=\"86\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--muted)\">反映待ちになる</text><circle cx=\"20\" cy=\"126\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"28\" y=\"130\" font-size=\"10.5\" fill=\"var(--warn)\">休日の範囲（祝日・会社の休み）</text><circle cx=\"20\" cy=\"144\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"28\" y=\"148\" font-size=\"10.5\" fill=\"var(--warn)\">聞き返しに答えないとき</text><rect x=\"356\" y=\"0\" width=\"344\" height=\"196\" rx=\"10\" fill=\"var(--paper-dim)\" stroke=\"var(--line)\" stroke-width=\"1\"/><text x=\"370\" y=\"24\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">同じ日に 2 回送った</text><rect x=\"370\" y=\"42\" width=\"150\" height=\"56\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><text x=\"445.0\" y=\"64\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">後の値で上書き</text><text x=\"445.0\" y=\"86\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--muted)\">前の値は残さない</text><path d=\"M 522 70 L 534 70\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 528 65 L 534 70 L 528 75\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><rect x=\"536\" y=\"42\" width=\"150\" height=\"56\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><text x=\"611.0\" y=\"64\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">更新を LINE で知らせる</text><text x=\"611.0\" y=\"86\" text-anchor=\"middle\" font-size=\"11\" fill=\"var(--muted)\">返信で気づける</text><text x=\"372\" y=\"130\" font-size=\"10.5\" fill=\"var(--ok)\">決めることは残っていない</text></svg>",
+   "fig_caption": "左が休日、右が同じ日の送り直し。橙の文字はまだ決めること。"
+  },
+  {
+   "heading": "月初めは通知を合図に、Claude がクラウド勤怠の退勤時刻を直していく",
+   "body": [
+    "クラウド勤怠には、勤怠を書き換える公開の窓口（API）がない。CSV の取り込みは全権管理者専用で、その日の打刻が丸ごと上書きされる。だから本人がログインした画面を Claude in Chrome に操作させる。",
+    "画面で直すのは退勤時刻だけで、申請や承認は要らない。退勤時刻は定時の 19:00 に残業時間を足して決め、実際の打刻には足さない。",
+    "この場面は決めることが最も多い。Claude が記録をどう受け取るかが決まると、切り替え役と失敗時の扱いも決めやすくなる。"
+   ],
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 220\" role=\"img\" aria-label=\"月初めの流れ。知らせる、準備する、反映するの 3 段階と 5 つの手順、それぞれで決めること\"><rect x=\"0\" y=\"0\" width=\"124\" height=\"22\" rx=\"4\" fill=\"var(--accent)\" opacity=\"0.35\"/><text x=\"8\" y=\"15\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ink)\">知らせる</text><rect x=\"144\" y=\"0\" width=\"124\" height=\"22\" rx=\"4\" fill=\"var(--accent)\" opacity=\"0.35\"/><text x=\"152\" y=\"15\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ink)\">準備する</text><rect x=\"288\" y=\"0\" width=\"412\" height=\"22\" rx=\"4\" fill=\"var(--accent)\" opacity=\"0.35\"/><text x=\"296\" y=\"15\" font-size=\"11\" font-weight=\"700\" fill=\"var(--ink)\">反映する</text><rect x=\"0\" y=\"50\" width=\"124\" height=\"58\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><circle cx=\"16\" cy=\"68\" r=\"9\" fill=\"var(--accent)\"/><text x=\"16\" y=\"72\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--paper)\">1</text><text x=\"30\" y=\"72\"  font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">通知</text><text x=\"12\" y=\"94\"  font-size=\"11\" fill=\"var(--muted)\">LINE に先月の件数</text><text x=\"4\" y=\"42\" font-size=\"10.5\" fill=\"var(--muted)\">記録係</text><path d=\"M 125 79 L 143 79\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 137 74 L 143 79 L 137 84\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><rect x=\"144\" y=\"50\" width=\"124\" height=\"58\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><circle cx=\"160\" cy=\"68\" r=\"9\" fill=\"var(--accent)\"/><text x=\"160\" y=\"72\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--paper)\">2</text><text x=\"174\" y=\"72\"  font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">ログイン</text><text x=\"156\" y=\"94\"  font-size=\"11\" fill=\"var(--muted)\">Chrome で勤怠へ</text><text x=\"148\" y=\"42\" font-size=\"10.5\" fill=\"var(--muted)\">あなた</text><path d=\"M 269 79 L 287 79\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 281 74 L 287 79 L 281 84\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><rect x=\"288\" y=\"50\" width=\"124\" height=\"58\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><circle cx=\"304\" cy=\"68\" r=\"9\" fill=\"var(--accent)\"/><text x=\"304\" y=\"72\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--paper)\">3</text><text x=\"318\" y=\"72\"  font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">依頼する</text><text x=\"300\" y=\"94\"  font-size=\"11\" fill=\"var(--muted)\">先月分を反映して</text><text x=\"292\" y=\"42\" font-size=\"10.5\" fill=\"var(--muted)\">あなた</text><path d=\"M 413 79 L 431 79\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 425 74 L 431 79 L 425 84\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><rect x=\"432\" y=\"50\" width=\"124\" height=\"58\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ink)\" stroke-width=\"1.5\"/><circle cx=\"448\" cy=\"68\" r=\"9\" fill=\"var(--accent)\"/><text x=\"448\" y=\"72\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--paper)\">4</text><text x=\"462\" y=\"72\"  font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">直す</text><text x=\"444\" y=\"94\"  font-size=\"11\" fill=\"var(--muted)\">退勤時刻を 1 件ずつ</text><text x=\"436\" y=\"42\" font-size=\"10.5\" fill=\"var(--muted)\">Claude</text><path d=\"M 557 79 L 575 79\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 569 74 L 575 79 L 569 84\" stroke=\"var(--accent)\" stroke-width=\"2\" fill=\"none\"/><rect x=\"576\" y=\"50\" width=\"124\" height=\"58\" rx=\"8\" fill=\"var(--paper)\" stroke=\"var(--ok)\" stroke-width=\"1.5\"/><circle cx=\"592\" cy=\"68\" r=\"9\" fill=\"var(--accent)\"/><text x=\"592\" y=\"72\" text-anchor=\"middle\" font-size=\"11\" font-weight=\"700\" fill=\"var(--paper)\">5</text><text x=\"606\" y=\"72\"  font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ink)\">切り替える</text><text x=\"588\" y=\"94\"  font-size=\"11\" fill=\"var(--muted)\">反映済みにする</text><text x=\"580\" y=\"42\" font-size=\"10.5\" fill=\"var(--muted)\">未定</text><circle cx=\"6\" cy=\"130\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"14\" y=\"134\" font-size=\"10.5\" fill=\"var(--warn)\">送る日時</text><circle cx=\"6\" cy=\"148\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"14\" y=\"152\" font-size=\"10.5\" fill=\"var(--warn)\">先月の区切り</text><circle cx=\"294\" cy=\"130\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"302\" y=\"134\" font-size=\"10.5\" fill=\"var(--warn)\">記録の渡し方</text><circle cx=\"294\" cy=\"148\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"302\" y=\"152\" font-size=\"10.5\" fill=\"var(--warn)\">反映前の確認</text><circle cx=\"438\" cy=\"130\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"446\" y=\"134\" font-size=\"10.5\" fill=\"var(--warn)\">打刻が無い日</text><circle cx=\"582\" cy=\"130\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"590\" y=\"134\" font-size=\"10.5\" fill=\"var(--warn)\">誰が切り替えるか</text></svg>",
+   "fig_caption": "上の帯が段階。5 つの手順のうち 4 つに、まだ決めることがある。",
+   "table": {
+    "headers": [
+     "その日の状況",
+     "クラウド勤怠に入れる退勤時刻"
+    ],
+    "rows": [
+     [
+      "平日・残業 2 時間",
+      "21:00"
+     ],
+     [
+      "平日・残業 6 時間",
+      "翌 1:00（日付をまたぐ）"
+     ],
+     [
+      "休日",
+      "LINE で聞き返した出勤・退勤の時刻"
+     ]
+    ]
+   },
+   "table_caption": "退勤時刻の決め方。定時は平日 10:00〜19:00 で、曜日による差はない。"
+  },
+  {
+   "heading": "記録は 1 件ずつ「反映待ち・反映済み・失敗」のどれかを持つ",
+   "body": [
+    "状態を 1 件ごとに持つのは、反映が途中で止まっても続きから再開するためだ。反映済みの印があれば、同じ日を二重に入力せずに済む。",
+    "失敗した記録のその後は決まっていない。次の依頼で失敗分だけやり直すのか、LINE で知らせるのかを決める必要がある。"
+   ],
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 700 170\" role=\"img\" aria-label=\"記録の 3 つの状態。反映待ちから反映済みか失敗へ進む。失敗のあとは未定\"><rect x=\"10\" y=\"57\" width=\"170\" height=\"56\" rx=\"28\" fill=\"var(--paper)\" stroke=\"var(--accent)\" stroke-width=\"2\"/><text x=\"95\" y=\"81\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--accent)\">反映待ち</text><text x=\"95\" y=\"99\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--muted)\">LINE で記録した直後</text><rect x=\"300\" y=\"4\" width=\"170\" height=\"56\" rx=\"28\" fill=\"var(--paper)\" stroke=\"var(--ok)\" stroke-width=\"2\"/><text x=\"385\" y=\"28\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--ok)\">反映済み</text><text x=\"385\" y=\"46\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--muted)\">次の依頼では飛ばす</text><rect x=\"300\" y=\"110\" width=\"170\" height=\"56\" rx=\"28\" fill=\"var(--paper)\" stroke=\"var(--err)\" stroke-width=\"2\"/><text x=\"385\" y=\"134\" text-anchor=\"middle\" font-size=\"12.5\" font-weight=\"700\" fill=\"var(--err)\">失敗</text><text x=\"385\" y=\"152\" text-anchor=\"middle\" font-size=\"10.5\" fill=\"var(--muted)\">画面で直せなかった</text><path d=\"M 182 74 C 230 60, 250 36, 294 32\" stroke=\"var(--ok)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 286 27 L 295 32 L 287 38\" stroke=\"var(--ok)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 182 96 C 230 110, 250 134, 294 138\" stroke=\"var(--err)\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 286 132 L 295 138 L 287 144\" stroke=\"var(--err)\" stroke-width=\"2\" fill=\"none\"/><text x=\"196\" y=\"44\" font-size=\"10.5\" fill=\"var(--muted)\">直せた</text><text x=\"196\" y=\"138\" font-size=\"10.5\" fill=\"var(--muted)\">直せなかった</text><path d=\"M 474 138 L 520 138\" stroke=\"var(--warn)\" stroke-width=\"2\" stroke-dasharray=\"4 4\" fill=\"none\"/><circle cx=\"534\" cy=\"130\" r=\"3.5\" fill=\"var(--warn)\"/><text x=\"542\" y=\"134\" font-size=\"10.5\" fill=\"var(--warn)\">このあとの扱い</text></svg>",
+   "fig_caption": "記録が月初めにたどる状態。失敗のあとだけが、まだ決まっていない。"
+  },
+  {
+   "heading": "決めること 13 件を場面ごとに並べた",
+   "body": [
+    "図の橙の文字を 1 つの表にまとめた。月初めの 7 件は互いにつながっているので、まとめて決めると手戻りが少ない。"
+   ],
+   "table": {
+    "headers": [
+     "場面",
+     "決めること"
+    ],
+    "rows": [
+     [
+      "毎日",
+      "送る文の書き方をどこまで許すか（「2 時間」「1.5h」「21:30 まで」など）"
+     ],
+     [
+      "毎日",
+      "前の日の分を、後から日付を付けて送れるようにするか"
+     ],
+     [
+      "毎日",
+      "日付や残業分を読み取れなかったときの返し方"
+     ],
+     [
+      "毎日",
+      "記録した内容を見る方法と、取り消す方法"
+     ],
+     [
+      "休日",
+      "どの日を休日とみなすか（土日だけか、祝日や会社の休みも含むか）"
+     ],
+     [
+      "休日",
+      "聞き返しに答えなかったときの扱い"
+     ],
+     [
+      "月初め",
+      "通知を送る日時（毎月何日の何時か）"
+     ],
+     [
+      "月初め",
+      "「先月分」の区切り（暦の月か、締め日があるか）"
+     ],
+     [
+      "月初め",
+      "Claude が記録をどう受け取るか"
+     ],
+     [
+      "月初め",
+      "反映の前に、一覧を見て確かめる手順を挟むか"
+     ],
+     [
+      "月初め",
+      "クラウド勤怠に打刻が無い日の扱い（出勤時刻も入れるか）"
+     ],
+     [
+      "月初め",
+      "反映済みへの切り替えを誰がするか"
+     ],
+     [
+      "月初め",
+      "失敗した記録の扱いと、やり直し方"
+     ]
+    ]
+   },
+   "table_caption": "まだ決めていないこと。答えが決まったものから設計文書に残していく。"
+  }
+ ],
+ "callout": {
+  "label": "次の一手",
+  "text": "月初めの**記録の渡し方**から決める。反映済みへの切り替え役と失敗時の扱いが、そこから決まっていく。"
+ },
+ "meta": {
+  "date": "2026-10-02",
+  "source": "kintai の設計メモ（2026-10-02 の決定事項）と、そこから移した設計文書の決定 11 件"
+ }
+}

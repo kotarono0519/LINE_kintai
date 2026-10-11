@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "@holiday-jp/holiday_jp": "npm:@holiday-jp/holiday_jp@2.5.2",
+    "@supabase/supabase-js": "npm:@supabase/supabase-js@2",
+    "@electric-sql/pglite": "npm:@electric-sql/pglite",
+    "@std/assert": "jsr:@std/assert@1"
+  },
+  "tasks": {
+    "test": "deno test --allow-env --allow-read --allow-net tests/",
+    "check": "deno check _shared/ line-webhook/ month-end-notice/ tests/",
+    "lint": "deno lint"
+  }
+}

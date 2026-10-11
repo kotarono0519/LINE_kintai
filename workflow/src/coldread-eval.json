@@ -1,0 +1,8 @@
+{
+  "tier": "quick",
+  "rounds": [
+    {"round": 1, "subject_match": true, "claim_match": true, "why_recovery": 3, "undefined_terms": ["橙の札", "Supabase", "叩き台"], "avoid_terms_found": [], "verdict": "veto", "veto_reasons": ["lexicon: 未定義語 3"]},
+    {"round": 2, "subject_match": true, "claim_match": true, "why_recovery": 3, "undefined_terms": ["切り替え役/切り替える（説明が弱い）", "設計文書"], "avoid_terms_found": [], "verdict": "pass"}
+  ],
+  "final_verdict": "pass"
+}
